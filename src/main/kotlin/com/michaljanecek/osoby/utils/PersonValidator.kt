@@ -1,6 +1,8 @@
 package com.michaljanecek.osoby.utils
 
+import org.springframework.stereotype.Component
 
+@Component
 class PersonValidator {
 
     fun validateFirstName(firstName: String): Boolean {

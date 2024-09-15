@@ -18,7 +18,7 @@ class PersonServiceImpl(
         createPopulation()
     }
 
-    override fun addPerson(firstName: String, lastName: String, birthNumber: BirthNumber) {
+    override fun addPerson(firstName: String, lastName: String, birthNumber: BirthNumber): Boolean {
         val validationErrors = mutableListOf<String>()
 
         if (!validator.validateFirstName(firstName)) {
@@ -36,11 +36,11 @@ class PersonServiceImpl(
         }
 
         val person = Person(firstName, lastName, birthNumber)
-        repository.addPerson(person)
+        return repository.addPerson(person)  // Return true if added, false otherwise
     }
 
-    override fun removePerson(birthNumber: BirthNumber) {
-        repository.removePerson(birthNumber)
+    override fun removePerson(birthNumber: BirthNumber): Boolean {
+        return repository.removePerson(birthNumber)  // Return true if removed, false otherwise
     }
 
     override fun findPerson(birthNumber: BirthNumber): Person? {

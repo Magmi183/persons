@@ -8,29 +8,30 @@ import org.springframework.stereotype.Repository
 class PersonInMemoryDatabase : PersonRepository {
     private val personStorage = mutableMapOf<BirthNumber, Person>()
 
-    override fun addPerson(person: Person) {
-        // Check if a person with the same birth number already exists
-        if (personStorage.containsKey(person.birthNumber)) {
-            throw IllegalArgumentException("Person with birth number ${person.birthNumber} already exists.")
+    override fun addPerson(person: Person): Boolean {
+        return if (!personStorage.containsKey(person.birthNumber)) {
+            personStorage[person.birthNumber] = person
+            true // Person added successfully
+        } else {
+            false // Person already exists
         }
-        personStorage[person.birthNumber] = person
     }
 
-    override fun removePerson(birthNumber: BirthNumber) {
-        // Check if the person exists before trying to remove
-        if (!personStorage.containsKey(birthNumber)) {
-            throw IllegalArgumentException("No person found with birth number $birthNumber.")
+    override fun removePerson(birthNumber: BirthNumber): Boolean {
+        return if (personStorage.containsKey(birthNumber)) {
+            personStorage.remove(birthNumber)
+            true // Person removed successfully
+        } else {
+            false // Person not found
         }
-        personStorage.remove(birthNumber)
     }
 
+    // Returns the person if found, null otherwise
     override fun findPersonByBirthNumber(birthNumber: BirthNumber): Person? {
-        if (!personStorage.containsKey(birthNumber)) {
-            throw IllegalArgumentException("No person found with birth number $birthNumber.")
-        }
         return personStorage[birthNumber]
     }
 
+    // Returns a list of all persons
     override fun getAllPersons(): List<Person> {
         return personStorage.values.toList()
     }

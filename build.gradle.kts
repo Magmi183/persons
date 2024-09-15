@@ -14,10 +14,8 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
 
-    // Spring Boot Web dependency for REST APIs
     implementation("org.springframework.boot:spring-boot-starter-web")
 
-    // Kotlin standard library and reflection
     implementation(kotlin("stdlib"))
     implementation(kotlin("reflect"))
 }

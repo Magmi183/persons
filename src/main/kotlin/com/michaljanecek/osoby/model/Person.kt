@@ -6,7 +6,7 @@ import java.time.Period
 data class Person(val firstName: String, val lastName: String, val birthNumber: BirthNumber) {
 
     // Calculate age based on birth number
-    private val age: Int by lazy {
+    val age: Int by lazy {
         val birthDate = birthNumber.birthDate
         val currentDate = LocalDate.now()
         Period.between(birthDate, currentDate).years

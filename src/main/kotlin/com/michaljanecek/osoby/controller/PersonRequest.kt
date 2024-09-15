@@ -1,4 +1,4 @@
-package controller
+package com.michaljanecek.osoby.com.michaljanecek.osoby.controller
 
 data class PersonRequest(
     val firstName: String,
