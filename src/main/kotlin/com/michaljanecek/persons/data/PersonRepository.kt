@@ -1,7 +1,7 @@
-package com.michaljanecek.osoby.data
+package com.michaljanecek.persons.data
 
-import com.michaljanecek.osoby.model.BirthNumber
-import com.michaljanecek.osoby.model.Person
+import com.michaljanecek.persons.model.BirthNumber
+import com.michaljanecek.persons.model.Person
 
 
 interface PersonRepository {

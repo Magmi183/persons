@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "com.michaljanecek"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
     mavenCentral()
@@ -18,4 +18,21 @@ tasks.test {
 }
 kotlin {
     jvmToolchain(19)
+}
+
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = "com.michaljanecek.persons.MainKt"
+    }
+}
+
+
+tasks.jar {
+    manifest.attributes["Main-Class"] = "com.michaljanecek.persons.MainKt"
+    val dependencies = configurations
+        .runtimeClasspath
+        .get()
+        .map(::zipTree) // OR .map { zipTree(it) }
+    from(dependencies)
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
