@@ -1,4 +1,4 @@
-package com.michaljanecek.osoby
+package com.michaljanecek.persons
 
 
 import org.springframework.boot.autoconfigure.SpringBootApplication

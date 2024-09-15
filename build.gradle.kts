@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.michaljanecek"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
     mavenCentral()
@@ -28,6 +28,11 @@ kotlin {
     jvmToolchain(19)
 }
 
+
+tasks.withType<org.springframework.boot.gradle.tasks.bundling.BootJar> {
+    mainClass.set("com.michaljanecek.persons.PersonApplicationKt")
+}
+
 tasks.withType<org.springframework.boot.gradle.tasks.run.BootRun> {
-    mainClass.set("com.example.demo.PersonApplicationKt")
+    mainClass.set("com.michaljanecek.persons.PersonApplicationKt")
 }
