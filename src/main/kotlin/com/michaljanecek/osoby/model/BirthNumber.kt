@@ -1,11 +1,11 @@
-package model
+package com.michaljanecek.osoby.model
 
 import java.time.LocalDate
 
 data class BirthNumber(val birthNumber: String) {
 
     private val normalized by lazy {
-        normalize(birthNumber)
+        birthNumber.replace("/", "")
     }
 
     val birthDate: LocalDate by lazy {
@@ -19,10 +19,6 @@ data class BirthNumber(val birthNumber: String) {
         LocalDate.of(fullYear, month, day)
     }
 
-    // Helper function to normalize birth number by removing slashes
-    private fun normalize(birthNumber: String): String {
-        return birthNumber.replace("/", "")
-    }
 
     override fun toString(): String {
         return normalized

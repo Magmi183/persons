@@ -1,4 +1,4 @@
-package utils
+package com.michaljanecek.osoby.utils
 
 
 class PersonValidator {

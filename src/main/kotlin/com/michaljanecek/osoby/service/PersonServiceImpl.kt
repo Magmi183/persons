@@ -1,9 +1,9 @@
-package service
+package com.michaljanecek.osoby.service
 
-import data.PersonRepository
-import model.BirthNumber
-import model.Person
-import utils.PersonValidator
+import com.michaljanecek.osoby.data.PersonRepository
+import com.michaljanecek.osoby.model.BirthNumber
+import com.michaljanecek.osoby.model.Person
+import com.michaljanecek.osoby.utils.PersonValidator
 import kotlin.random.Random
 
 class PersonServiceImpl(

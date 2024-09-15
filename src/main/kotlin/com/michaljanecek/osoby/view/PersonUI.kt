@@ -1,8 +1,8 @@
-package view
+package com.michaljanecek.osoby.view
 
-import model.BirthNumber
-import service.PersonServiceImpl
-import utils.PersonValidator
+import com.michaljanecek.osoby.service.PersonServiceImpl
+import com.michaljanecek.osoby.model.BirthNumber
+import com.michaljanecek.osoby.utils.PersonValidator
 import java.util.*
 
 class PersonUI(

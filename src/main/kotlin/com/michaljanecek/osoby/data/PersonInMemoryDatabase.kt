@@ -1,7 +1,7 @@
-package data
+package com.michaljanecek.osoby.data
 
-import model.BirthNumber
-import model.Person
+import com.michaljanecek.osoby.model.BirthNumber
+import com.michaljanecek.osoby.model.Person
 
 class PersonInMemoryDatabase : PersonRepository {
     private val personStorage = mutableMapOf<BirthNumber, Person>()

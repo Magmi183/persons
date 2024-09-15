@@ -1,7 +1,7 @@
-package service
+package com.michaljanecek.osoby.service
 
-import model.BirthNumber
-import model.Person
+import com.michaljanecek.osoby.model.BirthNumber
+import com.michaljanecek.osoby.model.Person
 
 interface PersonService {
     fun addPerson(firstName: String, lastName: String, birthNumber: BirthNumber)

@@ -1,4 +1,4 @@
-package model
+package com.michaljanecek.osoby.model
 
 import java.time.LocalDate
 import java.time.Period
