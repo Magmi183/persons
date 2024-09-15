@@ -2,7 +2,9 @@ package com.michaljanecek.osoby.data
 
 import com.michaljanecek.osoby.model.BirthNumber
 import com.michaljanecek.osoby.model.Person
+import org.springframework.stereotype.Repository
 
+@Repository
 class PersonInMemoryDatabase : PersonRepository {
     private val personStorage = mutableMapOf<BirthNumber, Person>()
 
@@ -27,5 +29,9 @@ class PersonInMemoryDatabase : PersonRepository {
             throw IllegalArgumentException("No person found with birth number $birthNumber.")
         }
         return personStorage[birthNumber]
+    }
+
+    override fun getAllPersons(): List<Person> {
+        return personStorage.values.toList()
     }
 }

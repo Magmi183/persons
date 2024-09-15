@@ -4,8 +4,11 @@ import com.michaljanecek.osoby.data.PersonRepository
 import com.michaljanecek.osoby.model.BirthNumber
 import com.michaljanecek.osoby.model.Person
 import com.michaljanecek.osoby.utils.PersonValidator
+import org.springframework.stereotype.Service
+
 import kotlin.random.Random
 
+@Service
 class PersonServiceImpl(
     private val repository: PersonRepository,
     private val validator: PersonValidator
@@ -42,6 +45,10 @@ class PersonServiceImpl(
 
     override fun findPerson(birthNumber: BirthNumber): Person? {
         return repository.findPersonByBirthNumber(birthNumber)
+    }
+
+    override fun getAllPersons(): List<Person> {
+        return repository.getAllPersons()
     }
 
     override fun createPopulation() {
